@@ -1,0 +1,9 @@
+<% return unless image_rotator && image_rotator.images %>
+ 
+<div class="image-rotator" style="height: <%= image_rotator.height %>; width: <%= image_rotator.width %>;">
+  <% image_rotator.images.each do |image| %>
+    <%= link_to image.url do %>
+      <%= image_fu image.image %>
+    <% end %>
+  <% end %>
+</div>

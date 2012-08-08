@@ -8,6 +8,12 @@ module Refinery
         app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
       end
 
+      initializer 'helpers' do |app|
+        ActiveSupport.on_load :action_controller do
+          helper Refinery::ImageRotators::ImageRotatorsHelper
+        end
+      end
+
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
           plugin.name = "image_rotators"

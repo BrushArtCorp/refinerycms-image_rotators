@@ -25,18 +25,6 @@
 <div id='records'>
   <% if @image_rotator.images.any? %>
     <%= render :partial => "/admin/image_rotator_images/sortable_list" %>
-    <label>To use this image rotator, embed the following code into the desired page:</label>
-    <pre style="overflow-x: auto;"><code>
-      &lt;div class="image-rotator" style="height:<%= @image_rotator.height %>;width:<%= @image_rotator.width %>;"&gt;
-      <% @image_rotator.images.each do |image| %>
-        <% if image.url.present? %>
-          &lt;a href="<%= image.url %>"&gt;&lt;img src="<%= image.image.url %>" alt="<%= image.image.title %>" title="<%= image.caption %>" /&gt;&lt;/a&gt;
-        <% else %>
-          &lt;img src="<%= image.image.url %>" alt="<%= image.image.title %>" title="<%= image.caption %>" /&gt;
-        <% end %>
-      <% end %>
-      &lt;/div&gt;
-    </code></pre>
   <% else %>
     <p>
       <strong>
