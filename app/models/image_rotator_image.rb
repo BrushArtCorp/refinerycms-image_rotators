@@ -10,4 +10,5 @@ class ImageRotatorImage < ActiveRecord::Base
 
   default_scope order('position ASC')
 
+  validates :image, :presence => true
 end
