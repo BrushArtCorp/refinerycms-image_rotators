@@ -9,7 +9,7 @@
     <%= link_to refinery_icon_tag("delete.png"), admin_image_rotator_image_rotator_image_path(image_rotator_image.image_rotator, image_rotator_image),
         :class => "cancel confirm-delete",
         :title => t('.delete'),
-        :'data-confirm' => t('shared.admin.delete.message', :title => image_rotator_image.image.title),
+        :'data-confirm' => t('shared.admin.delete.message', :title => image_rotator_image.image.try(:title)),
         :'data-method' => :delete %>
   </span>
 </li>
